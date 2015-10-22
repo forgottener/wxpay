@@ -442,10 +442,10 @@ class WxPayApi
      */
     public static function notify($callback, &$msg)
     {
-        //获取通知的数据
-        $xml = $GLOBALS['HTTP_RAW_POST_DATA'];
         //如果返回成功则验证签名
         try {
+            //获取通知的数据
+            $xml = $GLOBALS['HTTP_RAW_POST_DATA'];
             $result = WxPayResults::Init($xml);
         } catch (\Exception $e){
             $msg = $e->getMessage();
